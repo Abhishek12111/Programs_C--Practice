@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tutor Registration Form</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    .right-align {
+      text-align: right;
+    }
+
+    
+  </style>
+  <script>
+    function validateForm() {
+      // Validate Desired User Name
+      var desiredName = document.getElementById("desiredName").value;
+      if (desiredName.length > 20 || /[^a-zA-Z0-9 ]/.test(desiredName)) {
+        alert("Desired user name should be max 20 characters and contain only letters, numbers, and spaces.");
+        return false;
+      }
+      
+      // Validate Password
+      var password = document.getElementById("password").value;
+      var passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#\$^&*~]).{8,20}$/;
+      if (!passwordRegex.test(password)) {
+        alert("Password must meet the required criteria.");
+        return false;
+      }
+      
+      // Validate Name (letters from 'a' to 'z' and 'A' to 'Z' only, along with spaces)
+      var name = document.getElementById("name").value;
+      if (!/^[a-zA-Z\s]+$/.test(name)) {
+        alert("Name should only contain letters from 'a' to 'z' and 'A' to 'Z' along with spaces.");
+        return false;
+      }
+      
+      // Validate Postal Code (6 digits)
+      var postalCode = document.getElementById("postalCode").value;
+      if (!/^\d{6}$/.test(postalCode)) {
+        alert("Postal code should be a 6-digit number.");
+        return false;
+      }
+      
+      // Validate Area (no special characters)
+      var area = document.getElementById("area").value;
+      if (/[^a-zA-Z0-9 ]/.test(area)) {
+        alert("Area should not contain any special characters.");
+        return false;
+      }
+      
+      // Validate Contact Number (10 digits)
+      var contactNumber = document.getElementById("contactNumber").value;
+      if (!/^\d{10}$/.test(contactNumber)) {
+        alert("Contact number should be a 10-digit number.");
+        return false;
+      }
+      
+      // Validate Email
+      var email = document.getElementById("email").value;
+      var emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+      if (!emailRegex.test(email)) {
+        alert("Invalid email address.");
+        return false;
+      }
+      
+      // Validate Upload Photo (file type and size)
+      var photo = document.getElementById("uploadPhoto").files[0];
+      if (!photo || !/\.(jpg|jpeg|png|gif)$/i.test(photo.name) || photo.size > 2 * 1024 * 1024) {
+        alert("Upload a valid photo in JPG, PNG, or GIF format (up to 2MB).");
+        return false;
+      }
+      
+      return true; // All validations passed
+    }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h1 class="text-center mt-4">Tutor Registration Form</h1>
+    
+    <!-- Larger Container -->
+    <div class="container border p-3 mt-4">
+      <h4 class="font-weight-bold">Tutor Login Information</h4>
+      <ul class="list-unstyled">
+        <li class="mb-2">
+          <span class="font-weight-bold">Desired Name:</span>
+          <div class="right-align">
+            <input type="text" class="form-control">
+          </div>
+        </li>
+        <li class="mb-2">
+          <span class="font-weight-bold">Choose Password:</span>
+          <div class="right-align">
+            <input type="password" class="form-control">
+          </div>
+        </li>
+        <!-- Other fields ... -->
+        <li class="mb-2">
+          <span class="font-weight-bold">Select Secret Question:</span>
+          <div class="right-align">
+            <select class="form-control">
+              <option value="question1">Question 1</option>
+              <option value="question2">Question 2</option>
+              <!-- Add more options ... -->
+            </select>
+          </div>
+        </li>
+        <li class="mb-2">
+          <span class="font-weight-bold">Answer:</span>
+          <div class="right-align">
+            <input type="text" class="form-control">
+          </div>
+        </li>
+      </ul>
+    </div>
+    
+    <!-- Larger Container -->
+    <div class="container border p-3 mt-4">
+      <h4 class="font-weight-bold">Personal Detail and Tutor Contact Information</h4>
+      <ul class="list-unstyled">
+        <li class="mb-2">
+          <span class="font-weight-bold">Name:</span>
+          <div class="right-align">
+            <input type="text" class="form-control">
+          </div>
+        </li>
+        <li class="mb-2">
+          <span class="font-weight-bold">Gender:</span>
+          <div class="right-align">
+            <select class="form-control">
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+              <option value="non-binary">Non-binary</option>
+              <!-- Add more options ... -->
+            </select>
+          </div>
+        </li>
+        <li class="mb-2">
+          <span class="font-weight-bold">Age:</span>
+          <div class="right-align">
+            <input type="number" class="form-control">
+          </div>
+        </li>
+        <li class="mb-2">
+          <span class="font-weight-bold">Postal Zip Code:</span>
+          <div class="right-align">
+            <input type="text" class="form-control">
+          </div>
+        </li>
+        <li class="mb-2">
+          <span class="font-weight-bold">Area:</span>
+          <div class="right-align">
+            <input type="text" class="form-control">
+          </div>
+        </li>
+        <li class="mb-2">
+          <span class="font-weight-bold">Present Address:</span>
+          <div class="right-align">
+            <textarea class="form-control" rows="3"></textarea>
+          </div>
+        </li>
+        <li class="mb-2">
+          <span class="font-weight-bold">Contact Number:</span>
+          <div class="right-align">
+            <input type="text" class="form-control">
+          </div>
+        </li>
+        <li class="mb-2">
+          <span class="font-weight-bold">Email Address:</span>
+          <div class="right-align">
+            <input type="email" class="form-control">
+          </div>
+        </li>
+        <li class="mb-2">
+          <span class="font-weight-bold">Upload Photo:</span>
+          <div class="right-align">
+            <input type="file" accept=".jpg, .png, .gif" class="form-control-file">
+          </div>
+        </li>
+      </ul>
+    </div>
+    
+        <!-- Other fields ... -->
+        <li class="mb-2">
+          <span class="font-weight-bold">Upload Photo:</span>
+          <div class="right-align">
+            <input type="file" accept=".jpg, .png, .gif" class="form-control-file">
+          </div>
+        </li>
+      </ul>
+    </div>
+    
+    <!-- Continue Button -->
+    <div class="text-center mt-4">
+      <button class="btn btn-primary">Continue</button>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

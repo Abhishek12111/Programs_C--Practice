@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lead Generation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #007bff;
+        }
+        
+        .gamertag {
+            background-color: #f9f9f9;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        
+        .gamertag p {
+            text-align: justify;
+            margin-bottom: 20px;
+        }
+        
+        .gamertag strong {
+            color: #007bff;
+        }
+        
+        .lead-form {
+            margin-top: 30px;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        
+        .lead-form label,
+        .lead-form input {
+            display: block;
+            margin-bottom: 10px;
+        }
+        
+        .lead-form input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Lead Generation Forms</h1>
+
+    <!-- Form 1: TCPA Disclosure - No Interaction (Hidden Field) -->
+    <div class="lead-form">
+        <section>
+           <h1> Form 1: TCPA Disclosure - No Interaction (Hidden Field)</h1>
+            <p>Insurance Type: Health Insurance </p>
+This form allows users to submit their name and email to request more information about health insurance. 
+The TCPA disclosure is included as a hidden field, indicating user consent for communication.
+        </section>
+        <form action="form1_action_url_here" method="POST">
+            <label for="name1">Name:</label>
+            <input type="text" id="name1" name="name1" required>
+            
+            <label for="email1">Email:</label>
+            <input type="email" id="email1" name="email1" required>
+            
+            <input id="leadid_token1" name="universal_leadid1" type="hidden" value=""/>
+            
+            <!-- TCPA Disclosure - No Interaction (Hidden Field) -->
+            <label>
+               
+                <input type="hidden" id="leadid_tcpa_disclosure1"/>
+                [ENTER DESIRED OR SPECIFIED DISCLOSURE TEXT HERE  ( uses No Interaction format )]
+            </label>
+            <!-- End of TCPA Disclosure - No Interaction -->
+            
+            <input type="submit" value="Submit Form 1">
+        </form>
+    </div>
+
+    <!-- Form 2: TCPA Disclosure - Radio Buttons -->
+    <div class="lead-form">
+        <form action="form2_action_url_here" method="POST">
+            <label for="name2">Name:</label>
+            <input type="text" id="name2" name="name2" required>
+            
+            <label for="email2">Email:</label>
+            <input type="email" id="email2" name="email2" required>
+            
+            <input id="leadid_token2" name="universal_leadid2" type="hidden" value=""/>
+            
+            <!-- TCPA Disclosure - Radio Buttons -->
+            <label for="leadid_tcpa_disclosure2">[ENTER DESIRED OR SPECIFIED DISCLOSURE TEXT HERE  (uses Radio button)]</label>
+            <input type="radio" id="leadid_tcpa_disclosure2" name="tcpa_disclosure2" value="consent" required>
+            
+            <label for="leadid_tcpa_decline2">I decline</label>
+            <input type="radio" id="leadid_tcpa_decline2" name="tcpa_disclosure2" value="decline" required>
+            <!-- End of TCPA Disclosure - Radio Buttons -->
+            
+            <input type="submit" value="Submit Form 2">
+        </form>
+    
+    </div>
+
+    <!-- Form 3: TCPA Disclosure - Checkbox -->
+    <div class="lead-form">
+        <form action="form3_action_url_here" method="POST">
+            <label for="name3">Name:</label>
+            <input type="text" id="name3" name="name3" required>
+            
+            <label for="email3">Email:</label>
+            <input type="email" id="email3" name="email3" required>
+            
+            <input id="leadid_token3" name="universal_leadid3" type="hidden" value=""/>
+            
+            <!-- TCPA Disclosure - Checkbox -->
+            <label>
+                <input type="checkbox" id="leadid_tcpa_disclosure3"/>
+                [ENTER DESIRED OR SPECIFIED DISCLOSURE TEXT HERE  (form using Checkbox method)]
+            </label>
+            <!-- End of TCPA Disclosure - Checkbox -->
+            
+            <input type="submit" value="Submit Form 3">
+        </form>
+    </div>
+
+    <!-- Form 4: TCPA Disclosure - Yes/No Drop-down Menu -->
+    <div class="lead-form">
+        <form action="form4_action_url_here" method="POST">
+            <label for="name4">Name:</label>
+            <input type="text" id="name4" name="name4" required>
+            
+            <label for="email4">Email:</label>
+            <input type="email" id="email4" name="email4" required>
+            
+            <input id="leadid_token4" name="universal_leadid4" type="hidden" value=""/>
+            
+            <!-- TCPA Disclosure - Yes/No Drop-down Menu -->
+            <label>[ENTER DESIRED OR SPECIFIED DISCLOSURE TEXT HERE (using Yes/no dropdown menu)]
+                <select id="leadid_tcpa_disclosure4">
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+            </label>
+            <!-- End of TCPA Disclosure - Yes/No Drop-down Menu -->
+            
+            <input type="submit" value="Submit Form 4">
+        </form>
+    </div>
+
+
+  
+      
+     <!-- Step 3: Reset Script -->
+     <script id="LeadiDscript" type="text/javascript">
+        (function() {
+            var s = document.createElement('script');
+            s.id = 'LeadiDscript_campaign';
+            s.type = 'text/javascript';
+            s.async = true;
+            s.src = '//create.lidstatic.com/campaign/128e06a1-5a0e-2256-1f53-a65c77a8211b.js?snippet_version=2&f=reset';
+            var LeadiDscript = document.getElementById('LeadiDscript');
+            LeadiDscript.parentNode.insertBefore(s, LeadiDscript);
+        })();
+    </script>
+    <noscript><img src='//create.leadid.com/noscript.gif?lac=D8A1F37F-7686-609F-1EA9-55A9E075E56E&lck=128e06a1-5a0e-2256-1f53-a65c77a8211b&snippet_version=2' /></noscript>
+    <!-- End of Step 3 -->
+</body>
+</html>
